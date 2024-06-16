@@ -1,0 +1,22 @@
+from airflow import DAG
+import pendulum
+import datetime
+from airflow.operators.bash import BashOperator
+from airflow.operators.empty import EmptyOperator
+from airflow.decorators import dag
+
+#매월둘째주금요일13:00
+@dag(start_date=datetime.datetime(2024, 5, 1), 
+     tag = "homework",
+     schedule="0 13 * * 5#2")
+
+def bash_t1():
+    EmptyOperator(task_id="bash_task1",
+                  bash_command="echo whoami"
+                  )
+
+def bash_t2():
+    EmptyOperator(task_id = "bash_task2"
+                  , bash_command="echo $HOSTNAME")
+
+bash_t1() >> bash_t2()
