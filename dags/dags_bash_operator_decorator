@@ -19,4 +19,7 @@ def bash_t2():
     EmptyOperator(task_id = "bash_task2"
                   , bash_command="echo $HOSTNAME")
 
-bash_t1() >> bash_t2()
+bash_1 = bash_t1()
+bash_2 = bash_t2()
+
+bash_1 >> bash_2
