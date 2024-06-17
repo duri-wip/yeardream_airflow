@@ -76,7 +76,7 @@ x-airflow-common:
     AIRFLOW__SMTP__SMTP_USER: '8s.eow.ooc@gmail.com'
     AIRFLOW__SMTP__SMTP_PASSWORD: '##SMTP_PASSWORD##' 
     AIRFLOW__SMTP__SMTP_PORT: 587 
-    AIRFLOW__SMTP__SMTP_MAIL_FROM: '{gmail 계정}'
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: '8s.eow.ooc@gmail.com'
   volumes:
     - /home/ubuntu/yeardream_airflow/dags:/opt/airflow/dags
     - /home/ubuntu/logs:/opt/airflow/logs
