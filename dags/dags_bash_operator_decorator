@@ -7,7 +7,7 @@ from airflow.decorators import dag
 
 #매월둘째주금요일13:00
 @dag(start_date=datetime.datetime(2024, 5, 1), 
-     tag = "homework",
+     tags = ["homework"],
      schedule="0 13 * * 5#2")
 
 def dags_bash_operator_decorator():
