@@ -6,10 +6,11 @@ from airflow.exceptions import AirflowException
 import pendulum
 
 with DAG(
-    dag_id='dags_python_with_trigger_rule_eg1',
+    dag_id='dags_bash_trigger_rule',
     start_date=pendulum.datetime(2024,6,17, tz='Asia/Seoul'),
     schedule=None,
-    catchup=False
+    catchup=False,
+    tags = ['homework']
 ) as dag:
     bash_upstream_1 = BashOperator(
         task_id='bash_upstream_1',
@@ -25,7 +26,7 @@ with DAG(
     def python_upstream_2():
         print('정상 처리')
 
-    @task(task_id='python_downstream_1', trigger_rule='all_done')
+    @task(task_id='python_downstream_1', trigger_rule='one_success')
     def python_downstream_1():
         print('정상 처리')
 
